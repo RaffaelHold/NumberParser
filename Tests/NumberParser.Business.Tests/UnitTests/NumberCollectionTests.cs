@@ -1,4 +1,4 @@
-﻿namespace NumberParser.Business.Tests
+﻿namespace NumberParser.Business.Tests.UnitTests
 {
 	using System;
 	using BusinessModels;

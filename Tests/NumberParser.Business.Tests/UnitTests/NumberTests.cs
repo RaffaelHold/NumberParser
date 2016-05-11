@@ -1,4 +1,4 @@
-﻿namespace NumberParser.Business.Tests
+﻿namespace NumberParser.Business.Tests.UnitTests
 {
 	using BusinessModels;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
