@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="NumberParser.Data.Tests.IntegrationTests.FileReaderTests.ReturnEmptyArrayIfDirectoryDoesntExist" /><Add Test="NumberParser.Data.Tests.IntegrationTests.FileReaderTests.ReturnEmptyArrayIfFileDoesntExist" /></Playlist>
