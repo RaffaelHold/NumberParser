@@ -14,10 +14,9 @@
 		/// <summary>
 		/// Constructs a new <see cref="FileReader"/> and sets its <see cref="filePath"/>
 		/// </summary>
-		/// <param name="filePath">Path to the file to be read</param>
-		public FileReader(string filePath)
+		public FileReader()
 		{
-			this.filePath = filePath;
+			this.filePath = DataSettings.Default.FileName;
 		}
 
 		/// <summary>
