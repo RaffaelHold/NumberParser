@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="BusinessModels\Number.cs" />
     <Compile Include="BusinessModels\NumberCollection.cs" />
+    <Compile Include="BusinessObjects\NumberParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
