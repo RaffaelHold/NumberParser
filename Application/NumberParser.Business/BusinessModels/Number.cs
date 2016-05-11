@@ -3,6 +3,7 @@
 	using System;
 	using System.Collections.Generic;
 	using System.Text;
+	using Common;
 
 	/// <summary>
 	/// Represents an encoded number
@@ -61,8 +62,8 @@
 			}
 			else
 			{
-				// ToDo: Log error
-				return "";
+				ErrorHandler.Add("Unbekanntes Encoding");
+				return "E";
 			}
 		}
 	}

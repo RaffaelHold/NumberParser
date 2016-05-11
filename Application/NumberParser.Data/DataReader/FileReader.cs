@@ -3,6 +3,7 @@
 	using System;
 	using System.IO;
 	using System.Text;
+	using Common;
 
 	/// <summary>
 	/// Reads a file
@@ -36,15 +37,15 @@
 			}
 			catch (DirectoryNotFoundException ex)
 			{
-				// ToDo: Pass an error message to the view
+				ErrorHandler.Add("Das Verzeichnis wurde nicht gefunden");
 			}
 			catch (FileNotFoundException ex)
 			{
-				// ToDo: Pass an error message to the view
+				ErrorHandler.Add("Die Datei wurde nicht gefunden");
 			}
 			catch(Exception ex)
 			{
-				// ToDo: Pass an error message to the view
+				ErrorHandler.Add(ex.Message);
 			}
 
 			return new string[0];
