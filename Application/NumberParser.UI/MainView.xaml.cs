@@ -3,7 +3,7 @@
 	using System.Windows;
 
 	/// <summary>
-	/// Interaction logic for MainWindow.xaml
+	/// Interaction logic for MainView.xaml
 	/// </summary>
 	public partial class MainView : Window
 	{
