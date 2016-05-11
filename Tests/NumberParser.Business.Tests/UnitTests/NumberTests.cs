@@ -11,7 +11,7 @@
 		{
 			var number = new Number(null, null, null, null);
 
-			Assert.IsTrue(string.Empty == number.GetNumber());
+			Assert.IsTrue("E" == number.GetNumber());
 		}
 
 		[TestMethod]
@@ -27,7 +27,7 @@
 		{
 			var number = new Number("asd", null, null, null);
 
-			Assert.IsTrue(string.Empty == number.GetNumber());
+			Assert.IsTrue("E" == number.GetNumber());
 		}
 	}
 }
