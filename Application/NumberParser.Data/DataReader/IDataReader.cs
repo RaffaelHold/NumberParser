@@ -3,9 +3,9 @@
 	internal interface IDataReader
 	{
 		/// <summary>
-		/// Asynchronously reads data from a source.
+		/// Reads data from a file.
 		/// </summary>
-		/// <returns>Read data as string array</returns>
+		/// <returns>Read data or an empty array</returns>
 		string[] ReadData();
 	}
 }

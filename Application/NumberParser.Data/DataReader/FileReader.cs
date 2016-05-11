@@ -21,9 +21,9 @@
 		}
 
 		/// <summary>
-		/// Asynchronously reads data from a file.
+		/// Reads data from a file.
 		/// </summary>
-		/// <returns>Read data as string array</returns>
+		/// <returns>Read data or an empty array</returns>
 		public string[] ReadData()
 		{
 			try
