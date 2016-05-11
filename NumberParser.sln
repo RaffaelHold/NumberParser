@@ -19,10 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberParser.Data", "Applic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberParser.Business", "Application\NumberParser.Business\NumberParser.Business.csproj", "{FD8A2164-EAE4-4EA5-9CD7-9B85A194F29F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberParser.Services", "Application\NumberParser.Services\NumberParser.Services.csproj", "{7B41123C-DB8D-45D7-89EF-739EE8142B79}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberParser.Services.Tests", "Tests\NumberParser.Services.Tests\NumberParser.Services.Tests.csproj", "{6C3D4DC7-947C-4DC4-A81D-84848A3F6679}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,14 +49,6 @@ Global
 		{FD8A2164-EAE4-4EA5-9CD7-9B85A194F29F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD8A2164-EAE4-4EA5-9CD7-9B85A194F29F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD8A2164-EAE4-4EA5-9CD7-9B85A194F29F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B41123C-DB8D-45D7-89EF-739EE8142B79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B41123C-DB8D-45D7-89EF-739EE8142B79}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B41123C-DB8D-45D7-89EF-739EE8142B79}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B41123C-DB8D-45D7-89EF-739EE8142B79}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C3D4DC7-947C-4DC4-A81D-84848A3F6679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C3D4DC7-947C-4DC4-A81D-84848A3F6679}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C3D4DC7-947C-4DC4-A81D-84848A3F6679}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C3D4DC7-947C-4DC4-A81D-84848A3F6679}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,7 +60,5 @@ Global
 		{D65AF509-953A-4A96-89B8-6F3D31C46A87} = {ED646872-BB4B-476A-AAB9-46AF61BB4827}
 		{C47AF2F9-2E76-443E-8C55-B7FB416E2829} = {B65709D9-95F8-4AAF-8863-9FAD6D14F704}
 		{FD8A2164-EAE4-4EA5-9CD7-9B85A194F29F} = {B65709D9-95F8-4AAF-8863-9FAD6D14F704}
-		{7B41123C-DB8D-45D7-89EF-739EE8142B79} = {B65709D9-95F8-4AAF-8863-9FAD6D14F704}
-		{6C3D4DC7-947C-4DC4-A81D-84848A3F6679} = {ED646872-BB4B-476A-AAB9-46AF61BB4827}
 	EndGlobalSection
 EndGlobal
