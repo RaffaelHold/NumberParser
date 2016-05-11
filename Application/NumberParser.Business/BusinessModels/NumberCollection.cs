@@ -5,15 +5,15 @@
 	using System.Text;
 
 	/// <summary>
-	/// A FIFO Collection of type <see cref="Number"/>.
+	/// A Collection of type <see cref="Number"/>.
 	/// </summary>
 	public class NumberCollection
 	{
-		private Queue<Number> numbers;
+		private List<Number> numbers;
 
 		public NumberCollection()
 		{
-			numbers = new Queue<Number>();
+			numbers = new List<Number>();
 		}
 
 		/// <summary>
@@ -26,7 +26,18 @@
 				throw new ArgumentNullException();
 			}
 
-			numbers.Enqueue(item);
+			numbers.Add(item);
+		}
+
+		/// <summary>
+		/// Bindeable property to display the enqueued numbers.
+		/// </summary>
+		public string NumbersString
+		{
+			get
+			{
+				return this.ToString();
+			}
 		}
 
 		/// <summary>
