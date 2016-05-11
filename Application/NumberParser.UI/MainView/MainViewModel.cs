@@ -65,6 +65,9 @@
 		/// </summary>
 		private void ChooseFile()
 		{
+			// Remove old errors
+			ErrorHandler.Reset();
+
 			var openFileDialog = new OpenFileDialog();
 			openFileDialog.DefaultExt = ".txt";
 			openFileDialog.CheckFileExists = true;
