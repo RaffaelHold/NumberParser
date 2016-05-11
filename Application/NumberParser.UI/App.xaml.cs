@@ -19,7 +19,7 @@
 				container.RegisterType<MainViewModel>();
 
 				var view = container.Resolve<MainView.MainView>();
-				view.MainViewModel = container.Resolve<MainViewModel>();
+				view.DataContext = container.Resolve<MainViewModel>();
 
 				view.ShowDialog();
 			}
