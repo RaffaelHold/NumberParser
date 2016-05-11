@@ -21,6 +21,14 @@
 		public static ObservableCollection<string> Errors { get; set; }
 
 		/// <summary>
+		/// Adds an errors.
+		/// </summary>
+		public static void Reset(string error)
+		{
+			Errors.Add(error);
+		}
+
+		/// <summary>
 		/// Reset all errors.
 		/// </summary>
 		public static void Reset()
