@@ -78,11 +78,7 @@
 		/// </summary>
 		public void RaiseCanExecuteChanged()
 		{
-			EventHandler handler = CanExecuteChanged;
-			if (handler != null)
-			{
-				handler(this, new EventArgs());
-			}
+			CanExecuteChanged?.Invoke(this, new EventArgs());
 		}
 	}
 }
