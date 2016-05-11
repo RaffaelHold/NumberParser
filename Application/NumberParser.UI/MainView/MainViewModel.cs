@@ -2,11 +2,11 @@
 {
 	using System.ComponentModel;
 	using System.Runtime.CompilerServices;
-	using Business.BusinessModels;
 	using System.Windows.Input;
+	using Business.BusinessModels;
 	using Common;
-	using Microsoft.Win32; 
-	
+	using Microsoft.Win32;
+
 	/// <summary>
 	/// ViewModel for <see cref="MainView"/>.
 	/// </summary>
@@ -15,6 +15,9 @@
 		private NumberCollection numbers;
 		private string filePath;
 
+		/// <summary>
+		/// Collection of <see cref="Number"/>.
+		/// </summary>
 		public NumberCollection Numbers
 		{
 			get
@@ -28,6 +31,9 @@
 			}
 		}
 
+		/// <summary>
+		/// Currently chosen file path.
+		/// </summary>
 		public string FilePath
 		{
 			get
@@ -43,7 +49,7 @@
 
 		#region Commands
 
-		// <summary>
+		/// <summary>
 		/// Starts parsing a new File.
 		/// </summary>
 		public ICommand ChooseFileCommand

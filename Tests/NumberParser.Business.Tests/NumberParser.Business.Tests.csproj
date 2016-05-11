@@ -66,8 +66,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="NumberCollectionTests.cs" />
-    <Compile Include="NumberTests.cs" />
+    <Compile Include="UnitTests\NumberCollectionTests.cs" />
+    <Compile Include="UnitTests\NumberParserTests.cs" />
+    <Compile Include="UnitTests\NumberTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +79,9 @@
       <Project>{fd8a2164-eae4-4ea5-9cd7-9b85a194f29f}</Project>
       <Name>NumberParser.Business</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IntegrationTests\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

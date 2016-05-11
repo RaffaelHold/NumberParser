@@ -1,4 +1,4 @@
-﻿namespace NumberParser.Common.Tests
+﻿namespace NumberParser.Common.Tests.UnitTests
 {
 	using System;
 	using Common;
