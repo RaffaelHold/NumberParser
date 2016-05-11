@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NumberParser.MainView
+﻿namespace NumberParser.MainView
 {
+	using Microsoft.Practices.Unity;
+
+	/// <summary>
+	/// ViewModel for <see cref="MainView"/>.
+	/// </summary>
 	internal class MainViewModel
 	{
 		public MainViewModel()
