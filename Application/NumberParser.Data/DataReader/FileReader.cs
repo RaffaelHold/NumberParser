@@ -4,6 +4,9 @@
 	using System.IO;
 	using System.Text;
 
+	/// <summary>
+	/// Reads a file
+	/// </summary>
 	public class FileReader : IDataReader
 	{
 		/// <summary>
@@ -41,9 +44,6 @@
 			}
 			catch(Exception ex)
 			{
-				// Since we set the file path ourself the path should always be valid, except if the directory or the file has been deleted.
-				// If we decide to let the user select a path we might have to check for additional exceptions
-
 				// ToDo: Pass an error message to the view
 			}
 
