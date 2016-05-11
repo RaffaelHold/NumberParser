@@ -16,11 +16,11 @@ namespace NumberParser.Business.BusinessModels
 		static Number()
 		{
 			encodedNumbers = new Dictionary<string, int>();
-			encodedNumbers.Add("", 1);
-			encodedNumbers.Add("", 2);
-			encodedNumbers.Add("", 3);
-			encodedNumbers.Add("", 4);
-			encodedNumbers.Add("", 5);
+			encodedNumbers.Add("||||", 1);
+			encodedNumbers.Add("---_||---", 2);
+			encodedNumbers.Add("---/\\--", 3);
+			encodedNumbers.Add("|||___|||", 4);
+			encodedNumbers.Add("-----|___|____|", 5);
 		}
 
 		private string encodedNumber;
@@ -36,10 +36,10 @@ namespace NumberParser.Business.BusinessModels
 		{
 			var sb = new StringBuilder();
 
-			sb.Append(line1);
-			sb.Append(line2);
-			sb.Append(line3);
-			sb.Append(line4);
+			sb.Append(line1 ?? String.Empty);
+			sb.Append(line2 ?? String.Empty);
+			sb.Append(line3 ?? String.Empty);
+			sb.Append(line4 ?? String.Empty);
 
 			this.encodedNumber = sb.ToString();
 		}

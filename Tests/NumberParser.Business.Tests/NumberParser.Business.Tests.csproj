@@ -6,8 +6,8 @@
     <ProjectGuid>{06BD22E5-33DE-4E66-903F-298CEC10F5F4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NumberParser.Business</RootNamespace>
-    <AssemblyName>NumberParser.Business</AssemblyName>
+    <RootNamespace>NumberParser.Business.Tests</RootNamespace>
+    <AssemblyName>NumberParser.Business.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -66,10 +66,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="NumberCollectionTests.cs" />
+    <Compile Include="NumberTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\NumberParser.Business\NumberParser.Business.csproj">
+      <Project>{fd8a2164-eae4-4ea5-9cd7-9b85a194f29f}</Project>
+      <Name>NumberParser.Business</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

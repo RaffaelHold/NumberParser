@@ -1,5 +1,6 @@
 ﻿namespace NumberParser.Business.BusinessModels
 {
+	using System;
 	using System.Collections.Generic;
 	using System.Text;
 
@@ -13,6 +14,19 @@
 		public NumberCollection()
 		{
 			numbers = new Queue<Number>();
+		}
+
+		/// <summary>
+		/// Adds a new item to the collection.
+		/// </summary>
+		public void Add(Number item)
+		{
+			if(item == null)
+			{
+				throw new ArgumentNullException();
+			}
+
+			numbers.Enqueue(item);
 		}
 
 		/// <summary>
