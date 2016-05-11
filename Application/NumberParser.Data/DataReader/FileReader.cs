@@ -11,12 +11,14 @@
 		/// </summary>
 		private string filePath;
 
+
 		/// <summary>
 		/// Constructs a new <see cref="FileReader"/> and sets its <see cref="filePath"/>
 		/// </summary>
-		public FileReader()
+		/// <param name="filePath">Path to the file to be read</param>
+		public FileReader(string filePath)
 		{
-			this.filePath = DataSettings.Default.FileName;
+			this.filePath = filePath;
 		}
 
 		/// <summary>
