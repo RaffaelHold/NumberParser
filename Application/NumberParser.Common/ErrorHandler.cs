@@ -23,7 +23,7 @@
 		/// <summary>
 		/// Adds an errors.
 		/// </summary>
-		public static void Reset(string error)
+		public static void Add(string error)
 		{
 			Errors.Add(error);
 		}

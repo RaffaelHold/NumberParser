@@ -8,7 +8,7 @@
 		[TestMethod]
 		public void AddAddsAErrorToCollection()
 		{
-			ErrorHandler.Errors.Add("Test error");
+			ErrorHandler.Add("Test error");
 
 			Assert.IsTrue(ErrorHandler.Errors.Count == 1);
 		}
