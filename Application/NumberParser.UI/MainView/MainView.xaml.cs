@@ -1,4 +1,4 @@
-﻿namespace NumberParser
+﻿namespace NumberParser.MainView
 {
 	using System.Windows;
 
