@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NumberParser.Business.BusinessModels
+﻿namespace NumberParser.Business.BusinessModels
 {
+	using System;
+	using System.Collections.Generic;
+	using System.Text;
+
+	/// <summary>
+	/// Represents an encoded number
+	/// </summary>
 	public class Number
 	{
 		private static Dictionary<string, int> encodedNumbers;
