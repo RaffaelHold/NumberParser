@@ -1,5 +1,6 @@
 ﻿namespace NumberParser.Data.DataReader
 {
+	using System;
 	using System.IO;
 	using System.Text;
 
@@ -29,12 +30,23 @@
 			{
 				return File.ReadAllLines(filePath, Encoding.UTF8);
 			}
+			catch (DirectoryNotFoundException ex)
+			{
+				// ToDo: Pass an error message to the view
+			}
 			catch (FileNotFoundException ex)
 			{
 				// ToDo: Pass an error message to the view
-
-				return new string[0];
 			}
+			catch(Exception ex)
+			{
+				// Since we set the file path ourself the path should always be valid, except if the directory or the file has been deleted.
+				// If we decide to let the user select a path we might have to check for additional exceptions
+
+				// ToDo: Pass an error message to the view
+			}
+
+			return new string[0];
 		}
 	}
 }
