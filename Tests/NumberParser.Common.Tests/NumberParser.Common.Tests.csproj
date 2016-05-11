@@ -51,7 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="UnitTests\ActionCommandTests.cs" />
-    <Compile Include="UnitTests\ErrorLoggerTests.cs" />
+    <Compile Include="UnitTests\ErrorHandlerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
