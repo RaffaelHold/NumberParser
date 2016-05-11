@@ -113,6 +113,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NumberParser.Business\NumberParser.Business.csproj">
+      <Project>{fd8a2164-eae4-4ea5-9cd7-9b85a194f29f}</Project>
+      <Name>NumberParser.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NumberParser.Common\NumberParser.Common.csproj">
+      <Project>{9e151316-15f0-4e99-9a28-4340ce7ece36}</Project>
+      <Name>NumberParser.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
