@@ -58,8 +58,7 @@
 			}
 
 			// Get the last remaining number
-			// This assumes that rows are the same length
-			queueItem = GetNumberEncodingSubstring(content, content[0].Length);
+			queueItem = GetNumberEncodingSubstring(content);
 			queue.Enqueue(queueItem);
 
 			return CreateNumberCollection(queue);
@@ -115,6 +114,25 @@
 			}
 
 			return leftBoundaryIndex;
+		}
+
+		/// <summary>
+		/// Gets the last encoded number in the array.
+		/// </summary>
+		/// <param name="content">String array to be parsed</param>
+		/// <returns>String array containing an encoded number</returns>
+		private string[] GetNumberEncodingSubstring(string[] content)
+		{
+			var tempArr = new string[4];
+
+			// Get the highest indexed first whitespace character
+			for (int i = 0; i < content.Length; i++)
+			{
+				tempArr[i] = content[i].Substring(0).Replace(" ", "");
+				content[i] = content[i].Remove(0);
+			}
+
+			return tempArr;
 		}
 
 		/// <summary>
