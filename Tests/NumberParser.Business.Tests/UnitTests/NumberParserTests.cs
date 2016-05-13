@@ -8,7 +8,7 @@
 	public class NumberParserTests
 	{
 		[TestMethod]
-		public void ParserReturnsEmptyCollectionIfPassedNull()
+		public void ParseReturnsEmptyCollectionIfPassedNull()
 		{
 			var parser = new NumberParser();
 			var parsedNumbers = parser.Parse(null);
