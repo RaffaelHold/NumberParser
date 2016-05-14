@@ -13,7 +13,7 @@
 			var parser = new NumberParser();
 			var parsedNumbers = parser.Parse(null);
 
-			Assert.IsTrue(new NumberCollection().NumbersString == parsedNumbers.ToString());
+			Assert.IsTrue(parsedNumbers.Count == 0);
 		}
 	}
 }
