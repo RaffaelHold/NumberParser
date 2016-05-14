@@ -1,14 +1,23 @@
 ﻿namespace NumberParser.Business.BusinessObjects
 {
+	using System;
 	using System.Collections.Generic;
+	using System.Linq;
 	using BusinessModels;
 	using Data.DataReader;
-
+	
 	/// <summary>
 	/// Encapsulates logic to get content and parse it for encoded numbers
 	/// </summary>
 	public class NumberParser
 	{
+		/// <summary>
+		/// Describes how many rows encode a number
+		/// </summary>
+		private const int rowHeight = 4;
+		private const char placeholderChar = '$';
+		private IEnumerable<char> allowedChars = new[] { '-', '/', '\\', '_', '|' };
+
 		/// <summary>
 		/// Gets a file and parses it.
 		/// </summary>
@@ -17,6 +26,9 @@
 		public NumberCollection Parse(string path)
 		{
 			var content = GetContent(path);
+			ReplaceIrrelevantChars(content);
+
+			var str = content[0] + "\r\n" + content[1] + "\r\n" + content[2] + "\r\n" + content[3];
 
 			return ParseContent(content);
 		}
@@ -30,6 +42,66 @@
 		{
 			var fileReader = new FileReader(path);
 			return fileReader.ReadData();
+		}
+
+		/// <summary>
+		/// Replace all irrelevant characters with a placeholder.
+		/// </summary>
+		/// <param name="content">Array to remove irrelevant characters from</param>
+		private void ReplaceIrrelevantChars(string[] content)
+		{
+			// Replace all other disallowed characters
+			// Tabs before spaces are double the width
+			for (int i = 0; i < content.Length; i++)
+			{
+				content[i] = ReplaceTabs(content[i]);
+
+				content[i] = new String(content[i].Select(p => !allowedChars.Contains(p) ? placeholderChar : p).ToArray());
+			}
+		}
+
+		/// <summary>
+		/// Replace tabs with the right number of spaces.
+		/// </summary>
+		/// <param name="input">String to operate on</param>
+		/// <returns>Inout with tabs replaced</returns>
+		private string ReplaceTabs(string input)
+		{
+			// All tabs followed by whitespace fill to the next tabstop (multiples of 8)
+			while(input.IndexOf('\t') != -1)
+			{
+				int index = input.IndexOf('\t');
+
+				// If the next char is not a space the tabstop is always 1 long
+				// Otherwise the tabstop ranges to the next TabStop
+				if(input[index + 1] != ' ')
+				{
+					input = input.Remove(index, 1).Insert(index, placeholderChar.ToString());
+					continue;
+				}
+
+				string replacement = GetReplacement(index);
+				input = input.Remove(index, 1).Insert(index, replacement);
+			}
+
+			return input;
+		}
+
+		/// <summary>
+		/// Returns the correct amount of replacement characters for tab. 
+		/// </summary>
+		/// <param name="index">Index of the tabstop</param>
+		/// <returns>String of replacement chaaracters</returns>
+		private string GetReplacement(int index)
+		{
+			// TabStops are multiples of 8
+			int nextTabStop = 8;
+			while (index > nextTabStop)
+			{
+				nextTabStop += 8;
+			}
+
+			return new String(placeholderChar, nextTabStop - index);
 		}
 
 		/// <summary>
@@ -47,7 +119,7 @@
 			var queue = new Queue<string[]>();
 			string[] queueItem;
 
-			while (content[0].IndexOf(' ') != -1)
+			while (content[0].IndexOf(placeholderChar) != -1)
 			{
 				int rightBoundary = GetNumbersRightBoundary(content);
 
@@ -76,7 +148,7 @@
 			// Get the right boundary of the first number
 			for (int i = 0; i < content.Length; i++)
 			{
-				var tempIndex = content[i].IndexOf(' ');
+				var tempIndex = content[i].IndexOf(placeholderChar);
 
 				if (tempIndex > rightBoundary)
 				{
@@ -94,18 +166,17 @@
 		/// <returns>Index of left boundary</returns>
 		private int GetNumbersLeftBoundary(string[] content)
 		{
-			// Set leftBoundary to the first content rows length.
-			// This assumes that rows are the same length
-			int leftBoundaryIndex = content[0].Length;
+			// Set leftBoundary to int.MaxValue otherwise we wont find the first element
+			int leftBoundaryIndex = int.MaxValue;
 
 			// Get the left boundary of the next number
-			for (int i = 0; i < content.Length; i++)
+			for (int i = 0; i < rowHeight; i++)
 			{
 
 				// Get the rightmost space in every row
 				for(int j = 0; j < content[i].Length; j++)
 				{
-					if(content[i][j] != ' ' && leftBoundaryIndex > j)
+					if(content[i][j] != placeholderChar && leftBoundaryIndex > j)
 					{
 						leftBoundaryIndex = j;
 						break;
@@ -123,12 +194,12 @@
 		/// <returns>String array containing an encoded number</returns>
 		private string[] GetNumberEncodingSubstring(string[] content)
 		{
-			var tempArr = new string[4];
+			var tempArr = new string[rowHeight];
 
 			// Get the highest indexed first whitespace character
-			for (int i = 0; i < content.Length; i++)
+			for (int i = 0; i < rowHeight; i++)
 			{
-				tempArr[i] = content[i].Substring(0).Replace(" ", "");
+				tempArr[i] = content[i].Substring(0).Replace(placeholderChar.ToString(), String.Empty);
 				content[i] = content[i].Remove(0);
 			}
 
@@ -143,12 +214,12 @@
 		/// <returns>String array containing an encoded number</returns>
 		private string[] GetNumberEncodingSubstring(string[] content, int index)
 		{
-			var tempArr = new string[4];
+			var tempArr = new string[rowHeight];
 
 			// Get the highest indexed first whitespace character
-			for (int i = 0; i < content.Length; i++)
+			for (int i = 0; i < rowHeight; i++)
 			{
-				tempArr[i] = content[i].Substring(0, index).Replace(" ", "");
+				tempArr[i] = content[i].Substring(0, index).Replace(placeholderChar.ToString(), String.Empty);
 				content[i] = content[i].Remove(0, index);
 			}
 
@@ -164,7 +235,7 @@
 			int leftBoundary = GetNumbersLeftBoundary(content);
 
 			// Remove leading whitespace
-			for (int i = 0; i < content.Length; i++)
+			for (int i = 0; i < rowHeight; i++)
 			{
 				content[i] = content[i].Remove(0, leftBoundary);
 			}
