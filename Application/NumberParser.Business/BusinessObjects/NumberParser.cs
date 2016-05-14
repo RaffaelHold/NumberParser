@@ -28,8 +28,6 @@
 			var content = GetContent(path);
 			ReplaceIrrelevantChars(content);
 
-			var str = content[0] + "\r\n" + content[1] + "\r\n" + content[2] + "\r\n" + content[3];
-
 			return ParseContent(content);
 		}
 
