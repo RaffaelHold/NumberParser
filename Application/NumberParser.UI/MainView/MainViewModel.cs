@@ -1,6 +1,7 @@
 ﻿namespace NumberParser.MainView
 {
 	using System.ComponentModel;
+	using System.Collections.Generic;
 	using System.Runtime.CompilerServices;
 	using System.Windows.Input;
 	using Business.BusinessModels;
@@ -12,13 +13,13 @@
 	/// </summary>
 	internal class MainViewModel : INotifyPropertyChanged
 	{
-		private NumberCollection numbers;
+		private ICollection<NumberCollection> numbers;
 		private string filePath;
 
 		/// <summary>
 		/// Collection of <see cref="Number"/>.
 		/// </summary>
-		public NumberCollection Numbers
+		public ICollection<NumberCollection> Numbers
 		{
 			get
 			{

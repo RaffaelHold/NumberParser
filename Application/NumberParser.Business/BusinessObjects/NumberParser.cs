@@ -4,6 +4,7 @@
 	using System.Collections.Generic;
 	using System.Linq;
 	using BusinessModels;
+	using Common;
 	using Data.DataReader;
 	
 	/// <summary>
@@ -23,12 +24,20 @@
 		/// </summary>
 		/// <param name="path">Path to the file</param>
 		/// <returns>A <see cref="NumberCollection"/></returns>
-		public NumberCollection Parse(string path)
+		public ICollection<NumberCollection> Parse(string path)
 		{
 			var content = GetContent(path);
 			ReplaceIrrelevantChars(content);
 
-			return ParseContent(content);
+			var numberCollections = new List<NumberCollection>();
+
+			for (int i = 0; i < content.Length / rowHeight; i++)
+			{
+				var arr = content.Skip(i * rowHeight).Take(rowHeight).ToArray();
+				numberCollections.Add(ParseContent(arr));
+			}
+
+			return numberCollections;
 		}
 
 		/// <summary>
@@ -112,6 +121,11 @@
 			if(content.Length == 0)
 			{
 				return new NumberCollection();
+			}
+
+			if(content.Length != rowHeight)
+			{
+				ErrorHandler.Add("Die Zeile ist unvollständig");
 			}
 
 			var queue = new Queue<string[]>();
